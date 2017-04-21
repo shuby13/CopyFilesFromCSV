@@ -1,0 +1,14 @@
+$csvlocation=''
+$file=Import-Csv -LiteralPath $csvlocation
+$location1=''
+$target=''
+
+foreach  ($picname in $file.name)
+{
+  $path1=$location1+$picname
+  $path2=$location2+$picname
+  if(Test-Path -Path $path1)
+    {
+     copy-Item $path1 -Destination $target
+    }
+}
